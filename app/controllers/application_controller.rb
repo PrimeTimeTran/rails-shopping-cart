@@ -4,9 +4,10 @@ class ApplicationController < ActionController::Base
 
   def current_order
     if session[:order_id].nil?
-      Order.new
+      current_order = Order.create
+      session[:order_id] = current_order.id
     else
-      Order.find(session[:order_id])
+      current_order = Order.find(session[:order_id])
     end
   end
 end

@@ -10,10 +10,10 @@ class Order < ApplicationRecord
 
   def find_existed_product(item_params)
     current_item = order_items.find { |item| item.product_id.to_s == item_params[:product_id] }
-    if current_item
-      item_params[:product_id]
-    else
+    if current_item.nil?
       item_params
+    else
+      current_item
     end
   end
 
