@@ -5,7 +5,7 @@ class OrderItemsController < ApplicationController
     if product.nil?
       @order.order_items.create(order_item_params)
     else
-      product = @order.find_existed_product(order_item_params)      
+      product = @order.find_existed_product(order_item_params)
       @order.order_items.where(product_id: product.product_id).first.update_attributes(quantity: product.quantity + order_item_params[:quantity].to_i)
       @order.save
     end
