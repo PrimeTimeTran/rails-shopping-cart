@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ShoppingCartExample</title>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
-  <%= javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <head>
+    <title>ShoppingCartExample</title>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-  <%= csrf_meta_tags %>
-</head>
+    <%= tag :meta, name: :psj, action: action_name, controller: controller_name %>
+    <%= csrf_meta_tags %>
+  </head>
+
   <%= content_tag :body, data: {action: action_name, controller: controller_name } do  %>
     <div class="container">
       <div class="row">
@@ -20,7 +22,11 @@
         </div>
       </div>
       <hr>
-      <%= yield %>
+      <main role="main">
+        <div class="container">
+          <%= yield %>
+        </div>
+      </main>
     </div>
   <% end %>
 </html>

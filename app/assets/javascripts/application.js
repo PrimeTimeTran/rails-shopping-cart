@@ -10,6 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require init
+//= require products/cart
+//= require products/index
 //= require rails-ujs
 //= require jquery
 //= require turbolinks
